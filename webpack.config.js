@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 module.exports = {
     entry: ['webpack-hot-middleware/client',
-        './src/index.js'],
+        './src/index.jsx'],
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'bundle.js',
@@ -17,7 +17,7 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.js$/,
+                test: /\.jsx$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 include: __dirname,

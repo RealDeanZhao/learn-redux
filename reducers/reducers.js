@@ -1,5 +1,5 @@
-import {VisibilityFilters} from '../actions/actions';
-import {SET_VISIBILITY_FILTER, ADD_TODO, COMPLETE_TODO} from '../actions/actions';
+import {VisibilityFilters} from '../actions';
+import {SET_VISIBILITY_FILTER, ADD_TODO, COMPLETE_TODO} from './actions';
 import {combineReducers} from 'redux';
 const SHOW_ALL = VisibilityFilters.SHOW_ALL;
 const SHOW_COMPLETE = VisibilityFilters.SHOW_COMPLETE;
