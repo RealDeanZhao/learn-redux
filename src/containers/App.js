@@ -1,60 +1,16 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import AddTodo from '../components/AddTodo';
-import TodoList from '../components/TodoList';
+import AddTodo from '../containers/AddTodo';
+import VisibleTodoList from '../containers/VisibleTodoList';
 import Footer from '../components/Footer';
-import { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from '../actions/actions'
 
 const App = ({
-	dispatch, visibleTodos, visibilityFilter
 }) => (
 	<div>
-
-
-		<AddTodo onAddClick={ text => dispatch(addTodo(text)) } />
-
-
-		<TodoList
-			todos={ visibleTodos }
-			onTodoClick = { index =>  dispatch(completeTodo(index)) } />
-
-
-		<Footer
-			filter ={ visibilityFilter }
-			onFilterClick= { nextFilter => dispatch(setVisibilityFilter(nextFilter)) } />
-
-
+		<AddTodo/>
+		<VisibleTodoList/>
+		<Footer />
 	</div>
 )
 
-App.propTypes = {
-	visibleTodos: React.PropTypes.arrayOf(React.PropTypes.shape({
-		text: React.PropTypes.string.isRequired,
-		completed: React.PropTypes.bool.isRequired
-	})),
-	visibilityFilter: React.PropTypes.oneOf([
-		'SHOW_ALL',
-		'SHOW_COMPLETED',
-		'SHOW_ACTIVE'
-	]).isRequired
-}
-
-function selectTodos(todos, filter) {
-	switch (filter) {
-		case VisibilityFilters.SHOW_ALL:
-			return todos
-		case VisibilityFilters.SHOW_COMPLETED:
-			return todos.filter(todo => todo.completed)
-		case VisibilityFilters.SHOW_ACTIVE:
-			return todos.filter(todo => !todo.completed)
-	}
-}
-
-function select(state) {
-	return {
-		visibleTodos: selectTodos(state.todos, state.visibilityFilter),
-		visibilityFilter: state.visibilityFilter
-	}
-}
-
-export default connect(select)(App)
+export default connect()(App);

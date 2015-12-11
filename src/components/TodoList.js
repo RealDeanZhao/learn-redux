@@ -15,13 +15,4 @@ const TodoList = ({
   </ul>
 );
 
-
-TodoList.propTypes = {
-  onTodoClick: React.PropTypes.func.isRequired,
-  todos: React.PropTypes.arrayOf(React.PropTypes.shape({
-    text: React.PropTypes.string.isRequired,
-    completed: React.PropTypes.bool.isRequired
-  }).isRequired).isRequired
-}
-
 export default TodoList;

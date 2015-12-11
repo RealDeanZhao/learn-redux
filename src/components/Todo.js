@@ -11,11 +11,7 @@ const Todo = ({
 			textDecoration: completed ? 'line-through':'none',
 			cursor: completed? 'default':'pointer'
 		}}>
-
-
 		{text}
-
-
 	</li>
 );
 

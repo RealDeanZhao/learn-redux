@@ -1,67 +1,40 @@
 import * as React from 'react';
+import FilterLink from '../containers/FilterLink';
 
-const Footer = ({
-	filter,
-	onFilterClick
-}) => (
+const Footer = () => (
 	<p>
 		Show:
 		{ ' ' }
 
+
 		<FilterLink
-			filter='SHOW_ALL'
-			currentFilter = { filter }
-			onClick = { onFilterClick } >
+			filter='SHOW_ALL'>
 			All
 			< /FilterLink>
 
+
 			{ ', ' }
 
+
 			<FilterLink
-				filter='SHOW_COMPLETED'
-				currentFilter = { filter }
-				onClick = { onFilterClick } >
+				filter='SHOW_COMPLETED'>
 				Completed
 				< /FilterLink>
 
+
 				{ ', ' }
 
+
 				<FilterLink
-					filter='SHOW_ACTIVE'
-					currentFilter = { filter }
-					onClick = { onFilterClick } >
+					filter='SHOW_ACTIVE'>
 					Active
 					< /FilterLink>
+
 
 					< /p>
 )
 
-const FilterLink = ({
-	filter,
-	currentFilter,
-	onClick
-}) => (
-	<a
-		href='#'
-		onClick = { e=>{
-			e.preventDefault();
-			onClick(filter);
-		} } >
 
 
-		{ filter }
-
-
-		< /a>
-)
-
-Footer.propTypes = {
-  onFilterClick: React.PropTypes.func.isRequired,
-  filter: React.PropTypes.oneOf([
-		'SHOW_ALL',
-		'SHOW_COMPLETED',
-		'SHOW_ACTIVE'
-	]).isRequired
-}
 
 export default Footer;

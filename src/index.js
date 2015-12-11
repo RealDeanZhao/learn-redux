@@ -8,13 +8,10 @@ import todoApp from './reducers/reducers';
 
 let store = createStore(todoApp);
 
-console.log(__dirname);
-
 let rootElement = document.getElementById('root');
 render(
   <Provider store={ store } >
   <App />
   < /Provider>,
   rootElement
-  )
-  
+)
