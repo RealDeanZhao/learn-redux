@@ -1,44 +1,67 @@
-import React, { Component, PropTypes } from 'react';
+import * as React from 'react';
 
-export default class Footer extends Component {
-	renderFilter(filter, name) {
-		if (filter === this.props.filter) {
-			return name;
-		}
+const Footer = ({
+	filter,
+	onFilterClick
+}) => (
+	<p>
+		Show:
+		{ ' ' }
 
-		return (
-			<a href='#' onClick= {
-				e=>{
-					e.preventDefault();
-					this.props.onFilterChange(filter);
-				}
-			} >
-			{ name }
-			</a>
-		)
-	}
+		<FilterLink
+			filter='SHOW_ALL'
+			currentFilter = { filter }
+			onClick = { onFilterClick } >
+			All
+			< /FilterLink>
 
-	render() {
-		return (
-			<p>
-				Show:
-				{ ' ' }
-				{ this.renderFilter('SHOW_ALL', 'All') }
+			{ ', ' }
+
+			<FilterLink
+				filter='SHOW_COMPLETED'
+				currentFilter = { filter }
+				onClick = { onFilterClick } >
+				Completed
+				< /FilterLink>
+
 				{ ', ' }
-				{ this.renderFilter('SHOW_COMPLETED', 'Completed') }
-				{ ', ' }
-				{ this.renderFilter('SHOW_ACTIVE', 'Active') }
-				.
-			</p>
-		)
-	}
-}
+
+				<FilterLink
+					filter='SHOW_ACTIVE'
+					currentFilter = { filter }
+					onClick = { onFilterClick } >
+					Active
+					< /FilterLink>
+
+					< /p>
+)
+
+const FilterLink = ({
+	filter,
+	currentFilter,
+	onClick
+}) => (
+	<a
+		href='#'
+		onClick = { e=>{
+			e.preventDefault();
+			onClick(filter);
+		} } >
+
+
+		{ filter }
+
+
+		< /a>
+)
 
 Footer.propTypes = {
-	onFilterChange: PropTypes.func.isRequired,
-	filter: PropTypes.oneOf([
+  onFilterClick: React.PropTypes.func.isRequired,
+  filter: React.PropTypes.oneOf([
 		'SHOW_ALL',
 		'SHOW_COMPLETED',
 		'SHOW_ACTIVE'
 	]).isRequired
 }
+
+export default Footer;

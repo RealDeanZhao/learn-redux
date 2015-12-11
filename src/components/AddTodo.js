@@ -1,25 +1,32 @@
-import React, {Component, PropTypes} from 'react'
+import * as React from 'react'
 
-export default class AddTodo extends Component {
-	render() {
-		return (
-			<div>
-			<input type='text' ref = 'input' />
-			<button onClick={ e=> this.handleClick(e) }>
+const AddTodo = ({
+	onAddClick
+})=>{
+	let input;
+	return (
+		<div>
+
+
+			<input
+				type='text'
+				ref = {node => {input = node}} />
+
+
+			<button onClick={()=>{
+					onAddClick(input.value);
+					input.value = '';
+				}}>
 				Add
 			</button>
-			</div>
-		)
-	}
 
-	handleClick(e) {
-		const node = this.refs.input;
-		const text = node.value.trim();
-		this.props.onAddClick(text);
-		node.value = '';
-	}
-}
+
+		</div>
+	);
+};
 
 AddTodo.propTypes = {
-	onAddClick: PropTypes.func.isRequired
+	onAddClick: React.PropTypes.func.isRequired
 }
+
+export default AddTodo;
