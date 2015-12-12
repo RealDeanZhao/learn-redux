@@ -7,10 +7,9 @@ import todoApp from './reducers';
 import App from './containers/App';
 
 let store = createStore(todoApp);
-let rootElement = document.getElementById('root');
-render(
+render (
   <Provider store={ store } >
-  <App />
+    <App />
   < /Provider>,
-  rootElement
-)
+  document.getElementById('root')
+);

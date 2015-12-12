@@ -14,5 +14,5 @@ let App = ({
 
 )
 
-App =  connect()(App);
-export default App;
+ App =  connect()(App);
+ export default App;
