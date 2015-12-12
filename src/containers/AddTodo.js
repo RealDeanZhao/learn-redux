@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from '../actions/actions';
-import todoApp from '../reducers/reducers';
+import { addTodo } from '../actions/actions';
 import { connect } from 'react-redux';
 
 let AddTodo = ({dispatch})=>{
@@ -11,8 +10,15 @@ let AddTodo = ({dispatch})=>{
 				type='text'
 				ref = {node => {input = node}} />
 			<button onClick={()=>{
+					if (!input.value) {
+						return;
+					}
+					if (input.value.trim() === '') {
+						return;
+					}
 					dispatch(addTodo(input.value));
 					input.value = '';
+					input.focus();
 				}}>
 				Add
 			</button>

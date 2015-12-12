@@ -1,15 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import AddTodo from '../containers/AddTodo';
-import VisibleTodoList from '../containers/VisibleTodoList';
-import Footer from '../components/Footer';
+import * as AllContainers from '../containers';
+import * as AllComponents from '../components';
 
 const App = ({
 }) => (
 	<div>
-		<AddTodo/>
-		<VisibleTodoList/>
-		<Footer />
+		<AllContainers.AddTodo/>
+		<AllContainers.VisibleTodoList/>
+		<AllComponents.Footer />
 	</div>
 )
 

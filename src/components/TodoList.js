@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Todo from './Todo'
+import * as AllComponents from './'
 
 const TodoList = ({
   todos,
@@ -7,7 +7,7 @@ const TodoList = ({
 })=>(
   <ul>
     {todos.map((todo, index) =>
-      <Todo
+      <AllComponents.Todo
         key={index}
         {...todo}
         onClick={()=>onTodoClick(index)} />
