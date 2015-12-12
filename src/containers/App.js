@@ -3,13 +3,16 @@ import { connect } from 'react-redux';
 import * as AllContainers from '../containers';
 import * as AllComponents from '../components';
 
-const App = ({
+let App = ({
 }) => (
-	<div>
-		<AllContainers.AddTodo/>
-		<AllContainers.VisibleTodoList/>
-		<AllComponents.Footer />
-	</div>
+
+		<div>
+			<AllContainers.AddTodo/>
+			<AllContainers.VisibleTodoList/>
+			<AllComponents.Footer />
+		</div>
+
 )
 
-export default connect()(App);
+App =  connect()(App);
+export default App;

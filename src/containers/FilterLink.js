@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as AllComponents from '../components';
-import todoApp from '../reducers/reducers';
 import { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from '../actions/actions';
 import { connect } from 'react-redux';
 

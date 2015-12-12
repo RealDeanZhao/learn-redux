@@ -10,6 +10,7 @@ let AddTodo = ({dispatch})=>{
 				type='text'
 				ref = {node => {input = node}} />
 			<button onClick={()=>{
+					input.focus();
 					if (!input.value) {
 						return;
 					}
@@ -18,7 +19,6 @@ let AddTodo = ({dispatch})=>{
 					}
 					dispatch(addTodo(input.value));
 					input.value = '';
-					input.focus();
 				}}>
 				Add
 			</button>
